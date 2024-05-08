@@ -1,0 +1,59 @@
+body {
+    background: #161616;
+    margin: 0;
+  
+    height: 100dvh;
+    display: grid;
+    place-content: center center;
+  }
+  
+  .spinner {
+    background: #f5dad8;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 200px;
+    aspect-ratio: 1;
+    animation: rotate 6s linear infinite;
+  
+    img {
+      display: block;
+      width: 100%;
+      animation: bounce 0.2s linear infinite alternate;
+    }
+  }
+  
+  button {
+    background-color: #4CAF50; /* Color de fondo verde */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor en forma de mano al pasar el mouse */
+    font-size: 16px; /* Tamaño del texto */
+    margin-top: 20px; /* Margen superior de 20px */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+  }
+
+  /* Cambio de color cuando el mouse pasa sobre el botón */
+  button:hover {
+    background-color: #45a049; /* Color de fondo más oscuro */
+  }
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+  
+  @keyframes bounce {
+    from {
+      transform: translateY(-5%);
+    }
+  
+    to {
+      transform: translateY(10%);
+    }
+  }
