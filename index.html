@@ -9,21 +9,41 @@
 </head>
 
 <body>
-  <div class="spinner">
-    <img src="bono2.png" alt="Pedro!">
-  </div>
-  <audio id="backgroundMusic" loop>
-    <source src="audio.mp3" type="audio/mp3">
-    Tu navegador no soporta el elemento de audio.
-  </audio>
-  <button onclick="playAudio()">Play Music</button>
-
-  <script>
-    function playAudio() {
-      var audio = document.getElementById('backgroundMusic');
-      audio.play();
-    }
-  </script>
+    <div class="spinner">
+        <img id="image" src="bono2.png" alt="Pedro!">
+    </div>
+    <audio id="backgroundMusic" loop>
+        <source src="audio.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    <button onclick="switchImageAndPlayMusic()">Switch Image</button>
+    
+    <script>
+      function switchImageAndPlayMusic() {
+        var image = document.getElementById('image');
+        var audio = document.getElementById('backgroundMusic');
+        var currentImage = image.src.split('/').pop(); // Obtiene solo el nombre del archivo.
+    
+        // Cambio de imagen
+        if (currentImage === 'bono2.png') {
+          image.src = 'bris.png'; // Cambiar a la imagen de Bris.
+        } else if (currentImage === 'bris.png') {
+          image.src = 'pedro.png'; // Cambiar a la imagen de Pedro.
+        } else {
+          image.src = 'bono2.png'; // Volver a la imagen Bono2.
+        }
+    
+        // Reproducir o continuar el audio
+        if (audio.paused) {
+          audio.play().catch(e => {
+            console.log('La reproducción automática fue bloqueada: ' + e);
+            // Opcional: Avisar al usuario que debe interactuar con la página para reproducir el audio
+          });
+        }
+      }
+    </script>
+    
+      
 </body>
 
 </html>
